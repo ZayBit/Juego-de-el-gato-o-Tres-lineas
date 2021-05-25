@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="info-game">
+        <h1>Juega al gato!</h1>
+        <div class="default-icons-preview">
+            <i class="fas fa-times"></i>
+            <i class="far fa-circle"></i>
+        </div>
+        <p>Gato, o Tres lineas el tipico juego popular en donde solo existen 8 posibilidades de ganar asi que ganar o perder sera rapido.</p>
+        <div class="row-cards">
+            <div class="card">
+                <h3>Configurar juego</h3>
+                <ul>
+                    <li>Nombres de jugadores</li>
+                    <li>Opcion de tiempo por turno</li>
+                    <li>Rondas de juego</li>
+                    <li>Sustituir X o O por una ficha distinta</li>
+                    <li>Color de jugador</li>
+                </ul>
+                <a href="#gameOptions">Configurar</a>
+            </div>
+            <div class="card">
+                <h3>Jugar ya!</h3>
+                <p>Puede jugar con la configuracion tipica del juego</p>
+                <button class="playingDefault">Jugar</button>
+            </div>
+            <div class="card">
+                <h3>Ultimos juegos</h3>
+                <p>Revisa las ultimas jugadas de los otros jugadores, quien gano y quien perdio.</p>
+                <a href="#lastPlayings">Ver</a>
+            </div>
+        </div>
+    </div>
+    <div class="game-options">
+        <form id="gameOptions">
+            <label for="player1">Jugador 1</label>
+            <input type="text" id="player1" placeholder="X" name="player1" value="X">
+            <label for="player2">Jugador 2</label>
+            <input type="text" id="player2" placeholder="O" name="player2" value="O">
+            <label for="optionTime">Tiempo por turno</label>
+            <input type="checkbox" name="optionTime" id="optionTime">
+            <div class="time-change">
+
+            </div>
+            <label for="rounds">Rondas</label>
+            <input type="number" value="1" id="rounds" min="1" name="rounds">
+            <label for="">Color jugador 1</label>
+            <ul class="list-colors player1-colors">
+                <li>
+                    <input type="radio" name="player1Color" value="#1a1919" checked>
+                    <span class="color-black current-color"></span>
+                </li>
+                <li>
+                    <input type="radio" class="" name="player1Color" value="#bb3333">
+                    <span class="color-red"></span>
+                </li>
+                <li>
+                    <input type="radio" class="" name="player1Color" value="#507bf1">
+                    <span class="color-blue"></span>
+                </li>
+                <li>
+                    <input type="radio" class="" name="player1Color" value="#d4d238">
+                    <span class="color-yellow"></span>
+                </li>
+                <li>
+                    <input type="radio" class="" name="player1Color" value="#78b83c">
+                    <span class="color-green"></span>
+                </li>
+            </ul>
+            <label for="">Color jugador 2</label>
+            <ul class="list-colors player2-colors">
+                <li>
+                    <input type="radio" name="player2Color" value="#1a1919" checked>
+                    <span class="color-black current-color"></span>
+                </li>
+                <li>
+                    <input type="radio" class="" name="player2Color" value="#bb3333">
+                    <span class="color-red"></span>
+                </li>
+                <li>
+                    <input type="radio" class="" name="player2Color" value="#507bf1">
+                    <span class="color-blue"></span>
+                </li>
+                <li>
+                    <input type="radio" class="" name="player2Color" value="#d4d238">
+                    <span class="color-yellow"></span>
+                </li>
+                <li>
+                    <input type="radio" class="" name="player2Color" value="#78b83c">
+                    <span class="color-green"></span>
+                </li>
+            </ul>
+            <button>Jugar</button>
+        </form>
+        <div class="select-figure">
+            <button class="btn-change-icon current-player-select">Jugador 1</button>
+            <button class="btn-change-icon">Jugador 2</button>
+            <div class="row-select-figure">
+
+            </div>
+        </div>
+    </div>
+    <section id="lastPlayings" class="last-playings">
+
+    </section>
+    <div class="game-section">
+        <div class="controls">
+            <button class="prev"> < Anterios</button>
+            <button class="next">Siguiente > </button>
+        </div>
+        <div class="game-content">
+
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
