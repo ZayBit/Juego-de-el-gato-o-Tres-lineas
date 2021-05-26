@@ -185,7 +185,10 @@ gameOptions.addEventListener('submit', function (e) {
 
     localStorage.setItem('configGame', JSON.stringify(default_config))
     messages('Nueva configuracion', 'La siguiente configuracion estara lista para el proximo juego.', 50)
-    
+    game_count = 0;
+    games_won = 0;
+    current_position = 0;
+    total_rounds = default_config.rounds;
     for (let i = 0; i < default_config.rounds; i++) {
         generateCols()
     }
@@ -195,7 +198,7 @@ gameOptions.addEventListener('submit', function (e) {
 // init game
 const gameContent = document.querySelector('.game-content')
 const gameSection = document.querySelector('.game-section')
-let total_rounds = default_config.rounds;
+let total_rounds = 1;
 let game_count = 0;
 let games_won = 0;
 let current_position = 0;
@@ -252,7 +255,7 @@ const generateStats = () => {
     if (!localStorage.getItem('playersStats')) return
     let stats = JSON.parse(localStorage.getItem('playersStats'));
     let player_winner = (stats.player1.good > stats.player2.good) ? stats.player1.name : stats.player2.name ;
-
+    console.log(stats, ' res');
     const lastPlayings = document.querySelector('.last-playings');
 
     const table = `
@@ -335,16 +338,30 @@ const closeButton = ()=>{
     btnEndGame.classList.add('btn-end-game')
     gameContent.appendChild(btnEndGame)
     btnEndGame.addEventListener('click',()=>{
-        const btnControls = gameContent.querySelectorAll('.controls button')
+        const btnControls = gameSection.querySelectorAll('.controls button')
+        console.log(btnControls);
         removeClass(btnControls, 'button-visible') 
         gameContent.removeAttribute('style')
         gameContent.innerHTML = ''
         gameSection.style.display = 'none'
+        generateStats()
     })
 }
 const checkGame = (player_name = '?', player_plays = [], bgPlayerColor = '#bfbfbf', current_game, current_number_player = 1) => {
     if (player_plays.length <= 0) return;
-
+    let players_stats = {
+        player1: {
+            name: default_config.name_player1,
+            good: 0,
+            bad: 0,
+        },
+        player2: {
+            name: default_config.name_player2,
+            good: 0,
+            bad: 0
+        },
+        all_rounds: total_rounds
+    }
     let rules_map = [
         // horizontal
         [0, 1, 2],
@@ -399,7 +416,6 @@ const checkGame = (player_name = '?', player_plays = [], bgPlayerColor = '#bfbfb
                     }
               
                     if (games_won >= default_config.rounds) {
-                
                         btn_next.classList.remove('button-visible')
                         localStorage.setItem('playersStats', JSON.stringify(players_stats))
                         // const gameContent = document.querySelector('.game-content');
@@ -456,7 +472,6 @@ const startGame = (currentGame = 1) => {
     let game = document.querySelector(`.game-${currentGame}`)
     let gameAreas = game.querySelectorAll(`.area`)
 
-    
 
     gameAreas.forEach((area, i) => {
         area.addEventListener('mouseenter', function () {
