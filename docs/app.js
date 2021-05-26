@@ -59,6 +59,10 @@ playingDefault.addEventListener('click',function(){
         rounds: 1,
     }
     localStorage.setItem('configGame',JSON.stringify(default_config))
+    total_rounds = 1;
+    game_count = 0;
+    games_won = 0;
+    current_position = 0;
     for (let i = 0; i < default_config.rounds; i++) {
         generateCols()
     }
