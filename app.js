@@ -4,7 +4,12 @@ const classIcons = [
     'far fa-grin-tongue', 'far fa-kiss-beam', 'far fa-grimace',
     'far fa-hand-rock', 'far fa-hand-scissors', 'far fa-hand-spock',
     'far fa-dizzy', 'far fa-hand-peace', 'far fa-hand-paper',
-    'far fa-thumbs-up', 'far fa-thumbs-down'
+    'far fa-thumbs-up', 'far fa-thumbs-down','fas fa-ghost',
+    'fas fa-chess-king','fas fa-chess-knight','fas fa-chess-pawn',
+    'fas fa-chess-queen','fas fa-chess-rook','fas fa-heart',
+    'far fa-heart','fab fa-napster','fab fa-redhat','fas fa-robot',
+    'fas fa-smoking','fas fa-user-astronaut','fas fa-user-secret',
+    'fas fa-user-ninja'
 ]
 
 const messages = (title, ms, time = 40) => {
@@ -44,8 +49,10 @@ let default_config = {
     icon_player2: 'far fa-circle',
     color_player1: '#1a1919',
     color_player2: '#585858',
+    player1_class_color:'color-black',
+    player2_class_color:'color-black',
     time: 0,
-    rounds: 1,
+    rounds: 1
 }
 playingDefault.addEventListener('click',function(){
     let default_config = {
@@ -55,8 +62,10 @@ playingDefault.addEventListener('click',function(){
         icon_player2: 'far fa-circle',
         color_player1: '#1a1919',
         color_player2: '#585858',
+        player1_class_color:'color-black',
+        player2_class_color:'color-black',
         time: 0,
-        rounds: 1,
+        rounds: 1
     }
     localStorage.setItem('configGame',JSON.stringify(default_config))
     total_rounds = 1;
@@ -107,10 +116,10 @@ for (let i = 0; i < 2; i++) {
     ulFromIcons.classList.add(`icons-player${i + 1}`)
     rowSelectFigure.appendChild(ulFromIcons)
     classIcons.forEach(cls => {
-        let player_color = default_config[`color_player${i + 1}`];
+        let playerClassColor = default_config[`player${i + 1}_class_color`];
         let current_icon_player = (cls == default_config[`icon_player${i + 1}`]) ? 'current-icon' : '';
         ulFromIcons.innerHTML +=
-            `<li class="${current_icon_player}" style="color:${player_color}"><i class="${cls}"></i></li>`;
+            `<li class="${current_icon_player} ${playerClassColor}"><i class="${cls}"></i></li>`;
     })
 }
 
@@ -134,15 +143,23 @@ for (let i = 0; i < 2; i++) {
     listColorsSpan.forEach(spanColor => {
         spanColor.addEventListener('click', function () {
             let radio = this.parentElement.querySelector('input');
+            let current_color = this.classList[0]
             radio.click()
-            let selectFiguresLi = document.querySelectorAll(`.icons-player${i + 1} li`)
+            let content_icons = document.querySelector(`.icons-player${i + 1}`)
+            
+            let selectFiguresLi = content_icons.querySelectorAll('li')
 
             selectFiguresLi.forEach(iconLi => {
-                iconLi.style.color = radio.value
+                if(iconLi.classList.contains('current')){
+                    iconLi.classList.remove(iconLi.classList[1])
+                }else{
+                    iconLi.classList.remove(iconLi.classList[0])
+                }
+                iconLi.classList.add(current_color)
+                // iconLi.style.color = radio.value
             })
-
             default_config[`color_player${i + 1}`] = radio.value
-
+            default_config[`player${i + 1}_class_color`] = current_color
             removeClass(listColorsSpan, 'current-color')
             this.classList.add('current-color')
         })
@@ -186,6 +203,7 @@ gameOptions.addEventListener('submit', function (e) {
         default_config.name_player2 = player2_name
     }
     default_config.rounds = this.rounds.value
+    // default_config.player1_class_color = 
 
     localStorage.setItem('configGame', JSON.stringify(default_config))
     messages('Nueva configuracion', 'La siguiente configuracion estara lista para el proximo juego.', 50)

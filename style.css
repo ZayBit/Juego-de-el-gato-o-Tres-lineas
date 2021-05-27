@@ -57,7 +57,13 @@
     color:#303030;
     font-weight: 500;
 }
-.info-game .row-cards .card a{
+.info-game .row-cards .card button{
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.info-game .row-cards .card a,
+.info-game .row-cards .card button{
     color: #fff;
     text-decoration: none;
     padding:8px 13px;
@@ -68,7 +74,8 @@
     transition: all 300ms ease;
     font-weight: 500;
 }
-.info-game .row-cards .card a:hover{
+.info-game .row-cards .card a:hover,
+.info-game .row-cards .card button:hover{
     background: #3494e6;
 }
 .info-game .row-cards .card h3{
@@ -190,7 +197,7 @@
     }
 }
 .game .row-area .area i {
-    font-size: 40px;
+    font-size: 60px;
     opacity: 1;
     color: #1a5975;
     animation: upIcon 300ms 1 linear;
@@ -314,6 +321,24 @@
 .game-options #gameOptions .list-colors li span.color-green{
     background: #78b83c;
 }
+.game-options #gameOptions .list-colors li span.color-pink{
+    background: #E5C1BD;
+}
+.game-options #gameOptions .list-colors li span.color-bone{
+    background: #D2D0BA;
+}
+.game-options #gameOptions .list-colors li span.color-space{
+    background: #2B2D42;
+}
+.game-options #gameOptions .list-colors li span.color-brown{
+    background: #895B1E;
+}
+.game-options #gameOptions .list-colors li span.color-fire{
+    background: #DB5A42;
+}
+.game-options #gameOptions .list-colors li span.color-orange{
+    background: #FF9F1C;
+}
 .game-options .select-figure {
     width:60%;
     margin:0px 45px;
@@ -381,10 +406,133 @@
     background: #46bcf3;
     color: #fff !important;
 }
-.select-figure ul li:hover {
-    box-shadow: 0px 8px 12px #bfbfbf;
-    background: #46bcf3;
-    color: #fff !important;
+
+
+
+
+.select-figure ul li.color-black{
+    color: #1a1919;
+}
+.select-figure ul li.color-red{
+    color: #bb3333;
+}
+.select-figure ul li.color-blue{
+    color: #507bf1;
+}
+.select-figure ul li.color-yellow{
+    color: #d4d238;
+}
+.select-figure ul li.color-green{
+    color: #78b83c;
+}
+.select-figure ul li.color-pink{
+    color: #E5C1BD;
+}
+.select-figure ul li.color-bone{
+    color: #D2D0BA;
+}
+.select-figure ul li.color-space{
+    color: #2B2D42;
+}
+.select-figure ul li.color-brown{
+    color: #895B1E;
+}
+.select-figure ul li.color-fire{
+    color: #DB5A42;
+}
+.select-figure ul li.color-orange{
+    color: #FF9F1C;
+}
+
+
+
+.select-figure ul li.current-icon.color-black{
+    background: #1a1919;
+    color: #fff;
+}
+.select-figure ul li.current-icon.color-red{
+    background: #bb3333;
+    color: #fff;
+}
+.select-figure ul li.current-icon.color-blue{
+    background: #507bf1;
+    color: #fff;
+}
+.select-figure ul li.current-icon.color-yellow{
+    background: #d4d238;
+    color: #fff;
+}
+.select-figure ul li.current-icon.color-green{
+    background: #78b83c;
+    color: #fff;
+}
+.select-figure ul li.current-icon.color-pink{
+    background: #E5C1BD;
+    color: #fff;
+}
+.select-figure ul li.current-icon.color-bone{
+    background: #D2D0BA;
+    color: #fff;
+}
+.select-figure ul li.current-icon.color-space{
+    background: #2B2D42;
+    color: #fff;
+}
+.select-figure ul li.current-icon.color-brown{
+    background: #895B1E;
+    color: #fff;
+}
+.select-figure ul li.current-icon.color-fire{
+    background: #DB5A42;
+    color: #fff;
+}
+.select-figure ul li.current-icon.color-orange{
+    background: #FF9F1C;
+    color: #fff;
+}
+.select-figure ul li.color-black:hover{
+    background: #1a1919;
+    color: #fff;
+}
+.select-figure ul li.color-red:hover{
+    background: #bb3333;
+    color: #fff;
+}
+.select-figure ul li.color-blue:hover{
+    background: #507bf1;
+    color: #fff;
+}
+.select-figure ul li.color-yellow:hover{
+    background: #d4d238;
+    color: #fff;
+}
+.select-figure ul li.color-green:hover{
+    background: #78b83c;
+    color: #fff;
+}
+.select-figure ul li.color-pink:hover{
+    background: #E5C1BD;
+    color: #fff;
+}
+.select-figure ul li.color-bone:hover{
+    background: #D2D0BA;
+    color: #fff;
+}
+.select-figure ul li.color-space:hover{
+    background: #2B2D42;
+    color: #fff;
+}
+.select-figure ul li.color-brown:hover{
+    background: #895B1E;
+    color: #fff;
+}
+.select-figure ul li.color-fire:hover{
+    background: #DB5A42;
+    color: #fff;
+}
+.select-figure ul li.color-orange:hover{
+    background: #FF9F1C;
+    color: #fff;
 }
 .message-popup{
     position: fixed;
