@@ -4,6 +4,7 @@
 * {
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
     font-family: "Roboto", sans-serif;
 }
 .info-game {
@@ -562,4 +563,84 @@
     background: #46bcf3;
     height:4px;
     border-radius:5px;
+}
+
+/* Resposive */
+@media only screen and (max-width:1024px) {
+    .game-options{
+        width:100%;
+        /* margin:15px; */
+        padding:15px;
+    }
+    .game .row-area .area i{
+        font-size:46px;
+    }
+}
+@media only screen and (max-width:768px) {
+
+    .game-content{
+        padding:15px;
+    }
+    .game .row-area .area{
+        /* width:33.3%; */
+        width:150px;
+        /* margin:10px; */
+    }
+    .game .row-area .area i{
+        font-size:36px;
+    }
+    .info-game{
+        padding:10px;
+    }
+    .info-game p{
+        width:100%;
+    }
+    .info-game .row-cards{
+        /* width:90%;
+        margin:10px auto; */
+        width:100%;
+    }
+    .info-game .row-cards .card{
+        width:100%;
+        margin:10px auto;
+        text-align: center;
+    }
+    .info-game .row-cards .card ul li{
+        list-style: none;
+        margin:12px 0px;
+    }
+    .game-options{
+        display: block;
+        width:100%;
+        border: none;
+        margin:0px;
+        padding:0px;
+    }
+    .game-options #gameOptions,.game-options .select-figure{
+        text-align: center;
+        border: none;
+        width:60%;
+        margin: auto;
+    }
+    .game-options #gameOptions input{
+        margin: auto;
+        max-width:100%;
+    }
+    /* .game-options #gameOptions */
+
+    .game-options .select-figure li{
+        font-size:30px;
+        margin:5px;
+        border-radius: 0px;
+        padding:10px;
+
+    }
+    .game-options #gameOptions label{
+        /* width:300px; */
+        margin:15px auto;
+    }
+    .game-options #gameOptions .list-colors{
+        /* width:300px; */
+        margin: auto;
+    }
 }
